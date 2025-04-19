@@ -1,0 +1,87 @@
+.navbar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  position: fixed;
+  z-index: 1;
+}
+.nav_con {
+  width: 1440px;
+  margin: 0 auto;
+  padding: 20px 0px;
+}
+.side_logoo{
+  background-image: url("./img/logo.png");
+  width: 30px;
+  height: 30px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.nav_item_set {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.nav_item_icon {
+  font-size: 30px;
+  color: #000000;
+  cursor: pointer;
+}
+.nav_item_icon_noty {
+  font-size: 30px;
+  color: #0071A5;
+  cursor: pointer;
+}
+.nav_bar_item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.nav_item_icon:hover {
+  color: #0071A5;
+}
+.nav_item {
+  font-size: 18px;
+  font-weight: 500;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.nav_item_active {
+  color: #0071A5;
+  font-weight: 800;
+}
+.create_btn {
+  background-color: #071247;
+  color: white;
+  border-radius: 100%;
+  font-size: 28px;
+  width: 60px;
+  height: 60px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  cursor: pointer;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+}
+.post_con_new{
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 50px;
+  width: 100%;
+}
+.post_con_section{
+  flex: 1;
+}
+.coment_card_section{
+
+}
