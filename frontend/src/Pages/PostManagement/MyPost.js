@@ -480,4 +480,4 @@ useEffect(() => {
   );
 }
 
-
+export default MyPost;
