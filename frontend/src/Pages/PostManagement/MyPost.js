@@ -61,7 +61,8 @@ useEffect(() => {
       }
     };
 
-
+fetchPosts();
+  }, []);
 
   useEffect(() => {
     const fetchFollowedUsers = async () => {
