@@ -459,13 +459,7 @@ useEffect(() => {
         </div>
       </div>
 
-      <Modal
-        isOpen={isModalOpen}
-        onRequestClose={closeModal}
-        contentLabel="Media Modal"
-        className="media-modal"
-        overlayClassName="media-modal-overlay"
-      >
+
         <button className="close-modal-btn" onClick={closeModal}>x</button>
         {selectedMedia && selectedMedia.endsWith('.mp4') ? (
           <video controls className="modal-media">
