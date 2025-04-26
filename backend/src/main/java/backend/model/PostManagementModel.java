@@ -27,7 +27,7 @@ public class PostManagementModel {
         this.media = media;
     }
 
-
+    public PostManagementModel() {
 
     }
 
