@@ -12,6 +12,9 @@ function AddNewPost() {
     const files = Array.from(e.target.files);
     const maxFileSize = 50 * 1024 * 1024; // 50MB
 
+let imageCount = 0;
+        let videoCount = 0;
+        const previews = [];
 
     for (const file of files) {
       if (file.size > maxFileSize) {
