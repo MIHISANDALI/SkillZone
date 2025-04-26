@@ -39,9 +39,7 @@ public class PostManagementModel {
         this.id = id;
     }
 
-    public String getUserID() {
-        return userID;
-    }
+
 
     public void setUserID(String userID) {
         this.userID = userID;
