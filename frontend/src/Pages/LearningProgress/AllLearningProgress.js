@@ -132,6 +132,17 @@ function AllLearningProgress() {
                             </span>
                           </div>
                         </div>
+
+                        <div className="progress-dates">
+                          <HiCalendarDateRange className="calendar-icon" />
+                          <span>
+                            {progress.startDate} to {progress.endDate}
+                          </span>
+                        </div>
+                        <div className="progress-description">
+                          <h4>Description</h4>
+                          <p>{progress.description}</p>
+                        </div>
                       </div>
                     ))}
                   </div>
