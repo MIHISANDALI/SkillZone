@@ -157,11 +157,7 @@ function MyPost() {
       alert('Please log in to comment.');
       return;
     }
-    const content = newComment[postId] || ''; // Get the comment content for the specific post
-    if (!content.trim()) {
-      alert('Comment cannot be empty.');
-      return;
-    }
+
     try {
       const response = await axios.post(`http://localhost:8080/posts/${postId}/comment`, {
         userID,
