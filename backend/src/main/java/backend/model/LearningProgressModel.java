@@ -106,5 +106,11 @@ public class LearningProgressModel {
         this.imagePath = imagePath;
     }
 
-   
+    public String getPdfPath() {
+        return pdfPath;
+    }
+
+    public void setPdfPath(String pdfPath) {
+        this.pdfPath = pdfPath;
+    }
 }
