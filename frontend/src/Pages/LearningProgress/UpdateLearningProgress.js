@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import SideBar from '../../Components/NavBar/NavBar';
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import SideBar from "../../Components/NavBar/NavBar";
 
 function UpdateLearningProgress() {
   const { id } = useParams();
   const [formData, setFormData] = useState({
-    skillTitle: '',
-    description: '',
-    field: '',
-    startDate: '',
-    endDate: '',
-    postOwnerID: '',
-    postOwnerName: '',
-    imagePath: '',
-    pdfPath: ''
+    skillTitle: "",
+    description: "",
+    field: "",
+    startDate: "",
+    endDate: "",
+    postOwnerID: "",
+    postOwnerName: "",
+    imagePath: "",
+    pdfPath: "",
   });
   const [image, setImage] = useState(null);
   const [pdf, setPdf] = useState(null);
@@ -22,7 +22,9 @@ function UpdateLearningProgress() {
     fetch(`http://localhost:8080/learningProgress/${id}`)
       .then((response) => response.json())
       .then((data) => setFormData(data))
-      .catch((error) => console.error('Error fetching learning progress data:', error));
+      .catch((error) =>
+        console.error("Error fetching learning progress data:", error)
+      );
   }, [id]);
 
   const handleChange = (e) => {
@@ -33,44 +35,53 @@ function UpdateLearningProgress() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const updateFormData = new FormData();
-    updateFormData.append('data', new Blob([JSON.stringify(formData)], { type: 'application/json' }));
+    updateFormData.append(
+      "data",
+      new Blob([JSON.stringify(formData)], { type: "application/json" })
+    );
     if (image) {
-      updateFormData.append('image', image);
+      updateFormData.append("image", image);
     }
     if (pdf) {
-      updateFormData.append('pdf', pdf);
+      updateFormData.append("pdf", pdf);
     }
 
     try {
-      const response = await fetch(`http://localhost:8080/learningProgress/${id}`, {
-        method: 'PUT',
-        body: updateFormData,
-      });
+      const response = await fetch(
+        `http://localhost:8080/learningProgress/${id}`,
+        {
+          method: "PUT",
+          body: updateFormData,
+        }
+      );
       if (response.ok) {
-        alert('Learning Progress updated successfully!');
-        window.location.href = '/myProgress';
+        alert("Learning Progress updated successfully!");
+        window.location.href = "/myProgress";
       } else {
-        alert('Failed to update Learning Progress.');
+        alert("Failed to update Learning Progress.");
       }
     } catch (error) {
-      console.error('Error updating learning progress:', error);
+      console.error("Error updating learning progress:", error);
     }
   };
 
   return (
     <div>
-      <div> <SideBar /></div>
-      <div className='continer'>
-        <div className='continSection'>
+      <div>
+        {" "}
+        <SideBar />
+      </div>
+      <div className="continer">
+        <div className="continSection">
           <div className="from_continer">
             <p className="Auth_heading">Update Learning Progress</p>
             <form
               onSubmit={(e) => {
                 handleSubmit(e);
               }}
-              className='from_data'
+              className="from_data"
             >
-              <div className='two_fels_row'>
+              <div className="two_fels_row">
                 <div className="Auth_formGroup">
                   <label className="Auth_label">Title</label>
                   <input
@@ -91,16 +102,24 @@ function UpdateLearningProgress() {
                     onChange={handleChange}
                     required
                   >
-                    <option value="" disabled>Select Field</option>
-                    <option value="Frontend Development">Frontend Development</option>
-                    <option value="Programming Language">Programming Language</option>
-                    <option value="Backend Development">Backend Development</option>
+                    <option value="" disabled>
+                      Select Field
+                    </option>
+                    <option value="Frontend Development">
+                      Frontend Development
+                    </option>
+                    <option value="Programming Language">
+                      Programming Language
+                    </option>
+                    <option value="Backend Development">
+                      Backend Development
+                    </option>
                     <option value="UI/UX">UI/UX</option>
                     <option value="Quality Assurance">Quality Assurance</option>
                   </select>
                 </div>
               </div>
-              <div className='two_fels_row'>
+              <div className="two_fels_row">
                 <div className="Auth_formGroup">
                   <label className="Auth_label">Start Date</label>
                   <input
@@ -131,7 +150,7 @@ function UpdateLearningProgress() {
                   />
                 </div>
               </div>
-              <div className='two_fels_row_media'>
+              <div className="two_fels_row_media">
                 {formData.pdfPath && (
                   <div className="Auth_formGroup">
                     <label className="Auth_label">Current PDF</label>
@@ -156,7 +175,7 @@ function UpdateLearningProgress() {
                   </div>
                 )}
               </div>
-              <div className='two_fels_row'>
+              <div className="two_fels_row">
                 <div className="Auth_formGroup">
                   <label className="Auth_label">Upload New PDF</label>
                   <input
@@ -190,11 +209,13 @@ function UpdateLearningProgress() {
                   rows={4}
                 />
               </div>
-              <button type="submit" className="Auth_button">Update</button>
-            </form >
-          </div >
-        </div >
-      </div >
+              <button type="submit" className="Auth_button">
+                Update
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
