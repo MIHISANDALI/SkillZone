@@ -16,7 +16,7 @@ function NotificationsPage() {
         const response = await axios.get(`http://localhost:8080/notifications/${userId}`);
         setNotifications(response.data);
       } catch (error) {
-
+        console.error('Error fetching notifications:', error);
       }
     };
 
