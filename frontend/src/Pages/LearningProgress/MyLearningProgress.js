@@ -108,7 +108,15 @@ function MyLearningProgress() {
 
                         <div className="progress-title">
                           <h3>{progress.skillTitle}</h3>
-
+                          <div className="progress-image">
+                            {progress.imagePath && (
+                              <img
+                                src={`http://localhost:8080/learningProgress/image/${progress.imagePath}`}
+                                alt="Progress"
+                                className="progress-img"
+                              />
+                            )}
+                          </div>
                           {progress.pdfPath && (
                             <div className="progress-pdf">
                               <a
