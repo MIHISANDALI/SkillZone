@@ -58,8 +58,7 @@ function AddNewPost() {
       window.location.reload();
     }
 
-    setMedia(files);
-    setMediaPreviews(previews); // Set preview objects
+
   };
 
   const handleSubmit = async (e) => {
