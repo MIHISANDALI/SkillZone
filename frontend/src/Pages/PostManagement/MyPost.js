@@ -45,8 +45,7 @@ function MyPost() {
               fullName: res.data.fullname,
             }))
             .catch((error) => {
-              console.error(`Error fetching user details for userID ${userID}:`, error);
-              return { userID, fullName: 'Anonymous' };
+
             })
         );
         const owners = await Promise.all(ownerPromises);
