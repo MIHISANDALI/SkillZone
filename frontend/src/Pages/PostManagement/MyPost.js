@@ -23,26 +23,26 @@ function MyPost() {
   const navigate = useNavigate();
   const loggedInUserID = localStorage.getItem('userID'); // Get the logged-in user's ID
 
-  useEffect(() => {
+useEffect(() => {
     // Fetch all posts from the backend
     const fetchPosts = async () => {
       try {
         const response = await axios.get('http://localhost:8080/posts');
-        const loggedInUserID = localStorage.getItem('userID'); 
-        const userPosts = response.data.filter((post) => post.userID === loggedInUserID); 
+        const loggedInUserID = localStorage.getItem('userID');
+        const userPosts = response.data.filter((post) => post.userID === loggedInUserID);
         const postsWithShowAllComments = userPosts.map((post) => ({
           ...post,
-          showAllComments: false, 
+          showAllComments: false,
         }));
         setPosts(postsWithShowAllComments);
 
         // Fetch post owners' names
-        const userIDs = [...new Set(response.data.map((post) => post.userID))]; // Get unique userIDs
-        const ownerPromises = userIDs.map((userID) =>
-          axios.get(`http://localhost:8080/user/${userID}`)
-            .then((res) => ({
-              userID,
-              fullName: res.data.fullname,
+                 const userIDs = [...new Set(response.data.map((post) => post.userID))]; // Get unique userIDs
+                 const ownerPromises = userIDs.map((userID) =>
+                   axios.get(`http://localhost:8080/user/${userID}`)
+                     .then((res) => ({
+                       userID,
+                       fullName: res.data.fullname,
             }))
             .catch((error) => {
               console.error(`Error fetching user details for userID ${userID}:`, error);
@@ -61,7 +61,7 @@ function MyPost() {
       }
     };
 
-    fetchPosts();
+fetchPosts();
   }, []);
 
   useEffect(() => {
@@ -138,7 +138,7 @@ function MyPost() {
     }
     try {
       if (followedUsers.includes(postOwnerID)) {
-        // Unfollow logic
+// Unfollow logic
         await axios.put(`http://localhost:8080/user/${userID}/unfollow`, { unfollowUserID: postOwnerID });
         setFollowedUsers(followedUsers.filter((id) => id !== postOwnerID));
       } else {
@@ -459,7 +459,7 @@ function MyPost() {
         </div>
       </div>
 
-      <Modal
+<Modal
         isOpen={isModalOpen}
         onRequestClose={closeModal}
         contentLabel="Media Modal"
