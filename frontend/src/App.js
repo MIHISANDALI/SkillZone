@@ -10,10 +10,7 @@ import AllPost from "./Pages/PostManagement/AllPost";
 import UpdatePost from "./Pages/PostManagement/UpdatePost";
 import UserProfile from "./Pages/UserManagement/UserProfile";
 import MyPost from "./Pages/PostManagement/MyPost";
-import AllLearningProgress from "./Pages/LearningProgress/AllLearningProgress";
-import AddLearningProgress from "./Pages/LearningProgress/AddLearningProgress";
-import UpdateLearningProgress from "./Pages/LearningProgress/UpdateLearningProgress";
-import MyLearningProgress from "./Pages/LearningProgress/MyLearningProgress";
+
 function ProtectedRoute({ children }) {
   const userID = localStorage.getItem("userID");
   if (!userID) {
@@ -106,38 +103,7 @@ function App() {
               </ProtectedRoute>
             }
           />
-          <Route
-            path="/learningProgress"
-            element={
-              <ProtectedRoute>
-                <AllLearningProgress />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/addLearningProgress"
-            element={
-              <ProtectedRoute>
-                <AddLearningProgress />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/updateLearningProgress/:id"
-            element={
-              <ProtectedRoute>
-                <UpdateLearningProgress />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/myProgress"
-            element={
-              <ProtectedRoute>
-                <MyLearningProgress />
-              </ProtectedRoute>
-            }
-          />
+
         </Routes>
       </React.Fragment>
     </div>
