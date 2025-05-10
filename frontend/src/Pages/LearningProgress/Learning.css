@@ -22,14 +22,14 @@
   background: #071248;
   color: white;
 }
-.view-pdf-link{
+.view-pdf-link {
   text-decoration: none;
   font-weight: 500;
   color: #071248;
   margin-bottom: 25px;
   text-align: end;
 }
-.progress-img{
+.progress-img {
   width: 100%;
   border-radius: 8px;
 }
@@ -179,8 +179,6 @@
 .calendar-icon {
   color: #071248;
 }
-
-
 
 .not_found_img_nn {
   font-size: 3rem;
